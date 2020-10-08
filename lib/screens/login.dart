@@ -42,7 +42,7 @@ class _LoginState extends State<Login> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("OneConnect"),
+        title: Text("Raashin"),
         // Set the background color of the App Bar
       ),
       body: _isLoading

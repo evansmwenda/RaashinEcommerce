@@ -44,7 +44,7 @@ class _RegisterState extends State<Register> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("OneConnect"),
+        title: Text("Raashin"),
         // Set the background color of the App Bar
       ),
       body: _isLoading
