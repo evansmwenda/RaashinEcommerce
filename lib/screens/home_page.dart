@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_options.dart';
+import 'package:raashin/constants/apis.dart';
+import 'package:raashin/models/countries_model.dart';
+import 'package:raashin/widgets/ProductsGridView.dart';
+import 'package:http/http.dart' as http;
 
 final List<String> imgList = [
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
@@ -21,6 +25,14 @@ class Homepage extends StatefulWidget {
 
 class _State extends State<Homepage> {
   int _current = 0;
+  bool get wantKeepAlive => true;
+  Future _loadingDeals;
+
+  @override
+  void initState() {
+    _loadingDeals = fetchCountry(http.Client());
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     var aboutChild = AboutListTile(
@@ -54,37 +66,81 @@ class _State extends State<Homepage> {
             child: Stack(
               children: <Widget>[
                 Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                Positioned(
-                  bottom: 0.0,
-                  left: 0.0,
-                  right: 0.0,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color.fromARGB(200, 0, 0, 0),
-                          Color.fromARGB(0, 0, 0, 0)
-                        ],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                      ),
-                    ),
-                    padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                    child: Text(
-                      'No. ${imgList.indexOf(item)} image',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
+//                Positioned(
+//                  bottom: 0.0,
+//                  left: 0.0,
+//                  right: 0.0,
+//                  child: Container(
+//                    decoration: BoxDecoration(
+//                      gradient: LinearGradient(
+//                        color: [
+//                          Color.fromARGB(200, 0, 0, 0),
+//                          Color.fromARGB(0, 0, 0, 0)
+//                        ],
+//                        begin: Alignment.bottomCenter,
+//                        end: Alignment.topCenter,
+//                      ),
+//                    ),
+//                    padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+//                    child: Text(
+//                      'No. ${imgList.indexOf(item)} image',
+//                      style: TextStyle(
+//                        color: Colors.white,
+//                        fontSize: 20.0,
+//                        fontWeight: FontWeight.bold,
+//                      ),
+//                    ),
+//                  ),
+//                ),
               ],
             )
         ),
       ),
     )).toList();
+
+    final Widget myWidget = Container(
+        height: 200.0,
+        margin: EdgeInsets.symmetric(vertical: 2.0,horizontal: 8.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15.0),
+//              color: Colors.blue,
+        ),
+
+        child: Column(
+            children: [
+              CarouselSlider(
+                items: imageSliders,
+                options: CarouselOptions(
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                    aspectRatio: 2.0,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        _current = index;
+                      });
+                    }
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: imgList.map((url) {
+                  int index = imgList.indexOf(url);
+                  return Container(
+                    width: 8.0,
+                    height: 8.0,
+                    margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: _current == index
+                          ? Color.fromRGBO(0, 0, 0, 0.9)
+                          : Color.fromRGBO(0, 0, 0, 0.4),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ]
+        )
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -101,80 +157,25 @@ class _State extends State<Homepage> {
           ),
         ],
       ),
-      body: Column(
-        children: <Widget>[
-          Container(
-            height: 250.0,
-            margin: EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0),
-              color: Colors.blue,
-            ),
+      body: ListView(
+          children: <Widget>[
+            myWidget,
+            Container(
+              //child: Expanded(
+              child: FutureBuilder<List<Country>>(
+                  future: _loadingDeals,//fetchCountry(http.Client()),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) print(snapshot.error);
 
-            child: Column(
-                children: [
-                  CarouselSlider(
-                    items: imageSliders,
-                    options: CarouselOptions(
-                        autoPlay: true,
-                        enlargeCenterPage: true,
-                        aspectRatio: 2.0,
-                        onPageChanged: (index, reason) {
-                          setState(() {
-                            _current = index;
-                          });
-                        }
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: imgList.map((url) {
-                      int index = imgList.indexOf(url);
-                      return Container(
-                        width: 8.0,
-                        height: 8.0,
-                        margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: _current == index
-                              ? Color.fromRGBO(0, 0, 0, 0.9)
-                              : Color.fromRGBO(0, 0, 0, 0.4),
-                        ),
-                      );
-                    }).toList(),
-                  ),
-                ]
-            )
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical:10.0,horizontal: 30.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text("Account"),
-                IconButton(
-                  icon: Icon(
-                    Icons.settings,
-                    color: Colors.blue,
-                  ),
-                  onPressed: (){},
+                    return snapshot.hasData
+                        ? ProductsGridView(productsList: snapshot.data)
+                        : Center(child: new CircularProgressIndicator());
+                  }),
+            ),
+          ],
+        ),
 
-                ),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 5.0,horizontal: 8.0),
-            height: 1100,
-            decoration: BoxDecoration(
-              color: Colors.lightBlueAccent
-            ),
-          ),
-          Center(
-            child: Text("This is a text view"),
-          ),
-        ],
-      ),
+
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.
