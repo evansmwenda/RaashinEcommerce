@@ -1,6 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:raashin/models/countries_model.dart';
+import 'package:raashin/screens/product_details.dart';
 
 class ProductsGridView extends StatelessWidget {
 //  final List<Products> productsList;
@@ -35,29 +35,37 @@ class ProductsGridView extends StatelessWidget {
 //        ));
 //  }
 
-  GestureDetector getStructuredGridCell(Country products) {
-    // Wrap the child under GestureDetector to setup a on click action
-    return GestureDetector(
-      onTap: () {
-        print("onTap called->>" + products.name);
-      },
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 0.0),
-        child: Card(
-            elevation: 1.5,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.min,
-              verticalDirection: VerticalDirection.down,
-              children: <Widget>[
-                Stack(
+  @override
+  Widget build(BuildContext context) {
+    GestureDetector getStructuredGridCell(Country products) {
+      // Wrap the child under GestureDetector to setup a on click action
+      return GestureDetector(
+        onTap: () {
+          print("onTap called->>" + products.name);
+          Navigator.pushNamed(
+            context,
+            ProductDetails.routeName,
+            arguments: ProductDetailArguments.name(name: products.name,capital: products.capital,flag: products.flag,nativename: products.nativeName)
+          );
+        },
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 0.0),
+          child: Card(
+              elevation: 1.5,
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisSize: MainAxisSize.min,
+                  verticalDirection: VerticalDirection.down,
                   children: <Widget>[
-                    //Center(child: CircularProgressIndicator()),
-                    Center(
-                      child: FadeInImage.assetNetwork(
-                        placeholder: 'images/loading2.gif',
-                        image: 'https://picsum.photos/250?image=9',
-                      ),
+                    Stack(
+                      children: <Widget>[
+                        //Center(child: CircularProgressIndicator()),
+                        Center(
+                          child: FadeInImage.assetNetwork(
+                            placeholder: 'images/loading2.gif',
+                            image: 'https://picsum.photos/250?image=9',
+                          ),
 
 //                      CachedNetworkImage(
 //                        imageUrl: "http://via.placeholder.com/150x150",
@@ -66,29 +74,25 @@ class ProductsGridView extends StatelessWidget {
 //                        placeholder: (context, url) => CircularProgressIndicator(),
 //                        errorWidget: (context, url, error) => Icon(Icons.error),
 //                      ),
-
+                        ),
+                      ],
+                    ),
+                    Center(
+                      child: Text(products.name),
+                    ),
+                    Center(
+                      child: Text(
+                        "KSh. 200",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
-                Center(
-                  child: Text(products.name),
-                ),
-                Center(
-                  child: Text(
-                    "KSh. 200",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            )),
-      ),
+              )),
+        ),
+      );
+    }
 
-
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return new GridView.count(
       primary: true,
       crossAxisCount: 2,
@@ -103,4 +107,14 @@ class ProductsGridView extends StatelessWidget {
       }),
     );
   }
+}
+
+class ProductDetailArguments {
+  final String name;
+  final String nativename;
+  final String flag;
+  final String capital;
+
+  ProductDetailArguments.name({this.name, this.nativename, this.flag, this.capital}
+      );
 }

@@ -8,14 +8,13 @@ import 'package:raashin/widgets/ProductsGridView.dart';
 import 'package:http/http.dart' as http;
 
 final List<String> imgList = [
-  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-  'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-  'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+  'images/slider1.jpeg',
+  'images/slider2.jpeg',
+  'images/slider3.jpeg',
+  'images/slider4.jpeg',
+  'images/slider5.jpeg',
+  'images/slider6.jpeg'
 ];
-
 
 class Homepage extends StatefulWidget {
   static const routeName = '/homepage';
@@ -33,6 +32,7 @@ class _State extends State<Homepage> {
     _loadingDeals = fetchCountry(http.Client());
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     var aboutChild = AboutListTile(
@@ -58,14 +58,22 @@ class _State extends State<Homepage> {
       ),
     );
 
-    final List<Widget> imageSliders = imgList.map((item) => Container(
-      child: Container(
-        margin: EdgeInsets.all(5.0),
-        child: ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(5.0)),
-            child: Stack(
-              children: <Widget>[
-                Image.network(item, fit: BoxFit.cover, width: 1000.0),
+    final List<Widget> imageSliders = imgList
+        .map((item) => Container(
+              child: Container(
+                margin: EdgeInsets.all(5.0),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    child: Stack(
+                      children: <Widget>[
+//                Image.network(item, fit: BoxFit.cover, width: 1000.0),
+                        Image(
+                          image: AssetImage(
+                            item,
+                          ),
+                          width: 1000.0,
+                          fit: BoxFit.cover,
+                        )
 //                Positioned(
 //                  bottom: 0.0,
 //                  left: 0.0,
@@ -92,55 +100,50 @@ class _State extends State<Homepage> {
 //                    ),
 //                  ),
 //                ),
-              ],
-            )
-        ),
-      ),
-    )).toList();
+                      ],
+                    )),
+              ),
+            ))
+        .toList();
 
     final Widget myWidget = Container(
         height: 200.0,
-        margin: EdgeInsets.symmetric(vertical: 2.0,horizontal: 8.0),
+        margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 8.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
 //              color: Colors.blue,
         ),
-
-        child: Column(
-            children: [
-              CarouselSlider(
-                items: imageSliders,
-                options: CarouselOptions(
-                    autoPlay: true,
-                    enlargeCenterPage: true,
-                    aspectRatio: 2.0,
-                    onPageChanged: (index, reason) {
-                      setState(() {
-                        _current = index;
-                      });
-                    }
+        child: Column(children: [
+          CarouselSlider(
+            items: imageSliders,
+            options: CarouselOptions(
+                autoPlay: true,
+                enlargeCenterPage: true,
+                aspectRatio: 2.0,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _current = index;
+                  });
+                }),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: imgList.map((url) {
+              int index = imgList.indexOf(url);
+              return Container(
+                width: 8.0,
+                height: 8.0,
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: _current == index
+                      ? Color.fromRGBO(0, 0, 0, 0.9)
+                      : Color.fromRGBO(0, 0, 0, 0.4),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: imgList.map((url) {
-                  int index = imgList.indexOf(url);
-                  return Container(
-                    width: 8.0,
-                    height: 8.0,
-                    margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: _current == index
-                          ? Color.fromRGBO(0, 0, 0, 0.9)
-                          : Color.fromRGBO(0, 0, 0, 0.4),
-                    ),
-                  );
-                }).toList(),
-              ),
-            ]
-        )
-    );
+              );
+            }).toList(),
+          ),
+        ]));
 
     return Scaffold(
       appBar: AppBar(
@@ -158,24 +161,22 @@ class _State extends State<Homepage> {
         ],
       ),
       body: ListView(
-          children: <Widget>[
-            myWidget,
-            Container(
-              //child: Expanded(
-              child: FutureBuilder<List<Country>>(
-                  future: _loadingDeals,//fetchCountry(http.Client()),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasError) print(snapshot.error);
+        children: <Widget>[
+          myWidget,
+          Container(
+            //child: Expanded(
+            child: FutureBuilder<List<Country>>(
+                future: _loadingDeals, //fetchCountry(http.Client()),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) print(snapshot.error);
 
-                    return snapshot.hasData
-                        ? ProductsGridView(productsList: snapshot.data)
-                        : Center(child: new CircularProgressIndicator());
-                  }),
-            ),
-          ],
-        ),
-
-
+                  return snapshot.hasData
+                      ? ProductsGridView(productsList: snapshot.data)
+                      : Center(child: new CircularProgressIndicator());
+                }),
+          ),
+        ],
+      ),
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.
@@ -192,7 +193,8 @@ class _State extends State<Homepage> {
               accountEmail: Text("johndoe@gmail.com"),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Text("E",
+                child: Text(
+                  "E",
                   style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
 //              Icon(
@@ -202,25 +204,14 @@ class _State extends State<Homepage> {
               ),
             ),
             ListTile(
-              title: Text('Home',style: TextStyle(
-                color: Colors.blue,
-              ),),
-                leading: Icon(
-                  Icons.home,
+              title: Text(
+                'Home',
+                style: TextStyle(
                   color: Colors.blue,
                 ),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Update',style: TextStyle(
-                color: Colors.blue,
-              ),),
+              ),
               leading: Icon(
-                Icons.update,
+                Icons.home,
                 color: Colors.blue,
               ),
               onTap: () {
@@ -230,13 +221,16 @@ class _State extends State<Homepage> {
               },
             ),
             ListTile(
-              title: Text('Airplay',style: TextStyle(
-                color: Colors.blue,
-              ),),
-                leading: Icon(
-                  Icons.airplay,
+              title: Text(
+                'Categories',
+                style: TextStyle(
                   color: Colors.blue,
                 ),
+              ),
+              leading: Icon(
+                Icons.assignment,
+                color: Colors.blue,
+              ),
               onTap: () {
                 // Update the state of the app.
                 // ...
@@ -244,11 +238,31 @@ class _State extends State<Homepage> {
               },
             ),
             ListTile(
-              title: Text('Description',style: TextStyle(
-                color: Colors.blue,
-              ),),
+              title: Text(
+                'Account',
+                style: TextStyle(
+                  color: Colors.blue,
+                ),
+              ),
               leading: Icon(
-                Icons.description,
+                Icons.account_circle,
+                color: Colors.blue,
+              ),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text(
+                'Help',
+                style: TextStyle(
+                  color: Colors.blue,
+                ),
+              ),
+              leading: Icon(
+                Icons.help,
                 color: Colors.blue,
               ),
               onTap: () {

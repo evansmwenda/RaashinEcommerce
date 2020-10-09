@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:raashin/screens/home_page.dart';
 import 'package:raashin/screens/login.dart';
+import 'package:raashin/screens/product_details.dart';
 import 'package:raashin/screens/register.dart';
 
 
@@ -21,6 +22,7 @@ void main() {
         Login.routeName: (context) => Login(),//login page
         Register.routeName: (context) => Register(),//register page
         Homepage.routeName: (context) => Homepage(),//homepage
+        ProductDetails.routeName: (context) => ProductDetails(),//ProductDetails
 
 
       },
