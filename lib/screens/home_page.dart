@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carousel_slider/carousel_controller.dart';
@@ -23,18 +26,43 @@ class Homepage extends StatefulWidget {
 }
 
 class _State extends State<Homepage> {
+  List data;
   int _current = 0;
   bool get wantKeepAlive => true;
   Future _loadingDeals;
 
-  @override
-  void initState() {
-    _loadingDeals = fetchCountry(http.Client());
-    super.initState();
+  Future<String> getJSONData() async {
+    // This example uses the Google Books API to search for books about http.
+    // https://developers.google.com/books/docs/overview
+    // var url = 'https://www.googleapis.com/books/v1/volumes?q={http}';
+    var url = 'https://unsplash.com/napi/photos/Q14J2k8VE3U/related';
+
+    // Await the http get response, then decode the json-formatted response.
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      // var jsonResponse = convert.jsonDecode(response.body);
+      var jsonResponse = json.decode(response.body);
+      setState(() {
+        data = jsonResponse['results'];
+      });
+      print('jsonResponse: $jsonResponse.');
+    } else {
+      print('Request failed with status: ${response.statusCode}.');
+    }
   }
 
   @override
+  void initState() {
+    super.initState();
+    // _loadingDeals = fetchCountry(http.Client());
+    this.getJSONData();
+  }
+
+
+
+  @override
   Widget build(BuildContext context) {
+
     var aboutChild = AboutListTile(
       child: Text(
         "About",
@@ -73,33 +101,7 @@ class _State extends State<Homepage> {
                           ),
                           width: 1000.0,
                           fit: BoxFit.cover,
-                        )
-//                Positioned(
-//                  bottom: 0.0,
-//                  left: 0.0,
-//                  right: 0.0,
-//                  child: Container(
-//                    decoration: BoxDecoration(
-//                      gradient: LinearGradient(
-//                        color: [
-//                          Color.fromARGB(200, 0, 0, 0),
-//                          Color.fromARGB(0, 0, 0, 0)
-//                        ],
-//                        begin: Alignment.bottomCenter,
-//                        end: Alignment.topCenter,
-//                      ),
-//                    ),
-//                    padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-//                    child: Text(
-//                      'No. ${imgList.indexOf(item)} image',
-//                      style: TextStyle(
-//                        color: Colors.white,
-//                        fontSize: 20.0,
-//                        fontWeight: FontWeight.bold,
-//                      ),
-//                    ),
-//                  ),
-//                ),
+                        ),
                       ],
                     )),
               ),
@@ -160,23 +162,26 @@ class _State extends State<Homepage> {
           ),
         ],
       ),
-      body: ListView(
-        children: <Widget>[
-          myWidget,
-          Container(
-            //child: Expanded(
-            child: FutureBuilder<List<Country>>(
-                future: _loadingDeals, //fetchCountry(http.Client()),
-                builder: (context, snapshot) {
-                  if (snapshot.hasError) print(snapshot.error);
+      body:
+          // ListView(
+          //   children: <Widget>[
+          //     myWidget,
+          //     Container(
+          //       //child: Expanded(
+          //       child: FutureBuilder<List<Country>>(
+          //           future: _loadingDeals, //fetchCountry(http.Client()),
+          //           builder: (context, snapshot) {
+          //             if (snapshot.hasError) print(snapshot.error);
+          //
+          //             return snapshot.hasData
+          //                 ? ProductsGridView(productsList: snapshot.data)
+          //                 : Center(child: new CircularProgressIndicator());
+          //           }),
+          //     ),
+          //   ],
+          // ),
 
-                  return snapshot.hasData
-                      ? ProductsGridView(productsList: snapshot.data)
-                      : Center(child: new CircularProgressIndicator());
-                }),
-          ),
-        ],
-      ),
+          _buildListView(),
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.
@@ -277,4 +282,50 @@ class _State extends State<Homepage> {
       ),
     );
   }
+  Widget _buildListView() {
+    return GridView.builder(
+      itemCount:data == null ? 0 : data.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2),
+      itemBuilder: (BuildContext context, int index) {
+        return new Card(
+          child: new GridTile(
+            footer: Center(child: new Text(data[index]['user']['name'])),
+            child: CachedNetworkImage(
+              imageUrl: data[index]['urls']['small'],
+              placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+            ), //just for testing, will fill with image later
+          ),
+        );
+      },
+    );
+    // return ListView.builder(
+    //   padding: const EdgeInsets.all(16.0),
+    //   itemCount: data == null ? 0 : data.length,
+    //   itemBuilder: (context, index) {
+    //     return _buildImageColumn(data[index]);
+    //     // return ListTile(title: Text("data"),subtitle: Text("Likes : 1"),);
+    //   },
+    // );
+  }
+
+  Widget _buildImageColumn(item) => Container(
+      decoration: BoxDecoration(
+        color: Colors.blue[50],
+      ),
+      margin: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          CachedNetworkImage(
+            imageUrl: item['urls']['small'],
+            placeholder: (context, url) => CircularProgressIndicator(),
+            errorWidget: (context, url, error) => Icon(Icons.error),
+          ),
+          ListTile(
+            title: Text(item['user']['name']),
+            subtitle: Text(item['likes'].toString()),
+          ),
+        ],
+      ));
 }
