@@ -58,11 +58,8 @@ class _State extends State<Homepage> {
     this.getJSONData();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-
     var aboutChild = AboutListTile(
       child: Text(
         "About",
@@ -282,20 +279,36 @@ class _State extends State<Homepage> {
       ),
     );
   }
+
   Widget _buildListView() {
     return GridView.builder(
-      itemCount:data == null ? 0 : data.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2),
+      itemCount: data == null ? 0 : data.length,
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (BuildContext context, int index) {
         return new Card(
           child: new GridTile(
-            footer: Center(child: new Text(data[index]['user']['name'])),
-            child: CachedNetworkImage(
-              imageUrl: data[index]['urls']['small'],
-              placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-              errorWidget: (context, url, error) => Icon(Icons.error),
-            ), //just for testing, will fill with image later
+            child: Container(
+              alignment: Alignment(-1.0, -1.0),
+              decoration: BoxDecoration(
+                // color: Colors.grey,
+              ),
+              child: CachedNetworkImage(
+                imageUrl: data[index]['urls']['small'],
+                placeholder: (context, url) =>
+                    Center(child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+              ),
+            ),
+            footer: Center(
+              child: Column(
+                children: [
+                  new Text(data[index]['user']['name']),
+                  new Text("KSh 400"),
+                ],
+              ),
+            ),
+            //just for testing, will fill with image later
           ),
         );
       },
@@ -310,12 +323,8 @@ class _State extends State<Homepage> {
     // );
   }
 
-  Widget _buildImageColumn(item) => Container(
-      decoration: BoxDecoration(
-        color: Colors.blue[50],
-      ),
-      margin: const EdgeInsets.all(8.0),
-      child: Column(
+  Widget _buildImageColumn(item) => Card(
+          child: Column(
         children: [
           CachedNetworkImage(
             imageUrl: item['urls']['small'],
