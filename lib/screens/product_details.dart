@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:raashin/widgets/ProductsGridView.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:raashin/widgets/product_details_widget.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -41,7 +39,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
             )
           ],
-        ));
+        ),);
   }
 }
 

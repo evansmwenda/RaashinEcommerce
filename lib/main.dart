@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:raashin/screens/cart_details.dart';
 import 'package:raashin/screens/home_page.dart';
 import 'package:raashin/screens/login.dart';
 import 'package:raashin/screens/product_details.dart';
@@ -15,14 +16,16 @@ void main() {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-//    debugShowCheckedModeBanner: false,//uncomment this line in production
+   debugShowCheckedModeBanner: false,//uncomment this line in production
       initialRoute: '/',
       routes: {
         '/': (context) => Login(),//MyApp(), //splash screen page
         Login.routeName: (context) => Login(),//login page
         Register.routeName: (context) => Register(),//register page
         Homepage.routeName: (context) => Homepage(),//homepage
-        ProductDetails.routeName: (context) => ProductDetails(),//ProductDetails
+        ProductDetails.routeName: (context) => ProductDetails(),
+        CartDetails.routeName: (context) => CartDetails(),
+        //ProductDetails
 
 
       },
