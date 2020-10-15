@@ -7,6 +7,7 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:raashin/constants/apis.dart';
 import 'package:raashin/models/countries_model.dart';
+import 'package:raashin/screens/product_details.dart';
 import 'package:raashin/widgets/ProductsGridView.dart';
 import 'package:http/http.dart' as http;
 
@@ -28,6 +29,7 @@ class Homepage extends StatefulWidget {
 class _State extends State<Homepage> {
   List data;
   int _current = 0;
+
   bool get wantKeepAlive => true;
   Future _loadingDeals;
 
@@ -55,7 +57,8 @@ class _State extends State<Homepage> {
   void initState() {
     super.initState();
     // _loadingDeals = fetchCountry(http.Client());
-    this.getJSONData();
+    // this.getJSONData();
+    _loadingDeals = this.getJSONData();
   }
 
   @override
@@ -76,7 +79,8 @@ class _State extends State<Homepage> {
         child: Image(
           image: AssetImage('images/connectdark.png'),
         ),
-      ), //FlutterLogo(),
+      ),
+      //FlutterLogo(),
       icon: Icon(
         Icons.info,
         color: Colors.blue,
@@ -84,25 +88,26 @@ class _State extends State<Homepage> {
     );
 
     final List<Widget> imageSliders = imgList
-        .map((item) => Container(
-              child: Container(
-                margin: EdgeInsets.all(5.0),
-                child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    child: Stack(
-                      children: <Widget>[
+        .map((item) =>
+        Container(
+          child: Container(
+            margin: EdgeInsets.all(5.0),
+            child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                child: Stack(
+                  children: <Widget>[
 //                Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                        Image(
-                          image: AssetImage(
-                            item,
-                          ),
-                          width: 1000.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ],
-                    )),
-              ),
-            ))
+                    Image(
+                      image: AssetImage(
+                        item,
+                      ),
+                      width: 1000.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ],
+                )),
+          ),
+        ))
         .toList();
 
     final Widget myWidget = Container(
@@ -160,25 +165,25 @@ class _State extends State<Homepage> {
         ],
       ),
       body:
-          // ListView(
-          //   children: <Widget>[
-          //     myWidget,
-          //     Container(
-          //       //child: Expanded(
-          //       child: FutureBuilder<List<Country>>(
-          //           future: _loadingDeals, //fetchCountry(http.Client()),
-          //           builder: (context, snapshot) {
-          //             if (snapshot.hasError) print(snapshot.error);
-          //
-          //             return snapshot.hasData
-          //                 ? ProductsGridView(productsList: snapshot.data)
-          //                 : Center(child: new CircularProgressIndicator());
-          //           }),
-          //     ),
-          //   ],
-          // ),
-
-          _buildListView(),
+      // ListView(
+      //   children: <Widget>[
+      //     myWidget,
+      //     Container(
+      //       //child: Expanded(
+      //       child: FutureBuilder<String>(
+      //           future: _loadingDeals, //fetchCountry(http.Client()),
+      //           builder: (context, snapshot) {
+      //             if (snapshot.hasError) print(snapshot.error);
+      //
+      //             return snapshot.hasData
+      //             // ? ProductsGridView(productsList: snapshot.data)
+      //                 ? _buildGridView()
+      //                 : Center(child: new CircularProgressIndicator());
+      //           }),
+      //     ),
+      //   ],
+      // ),
+      _buildGridView(),
       drawer: Drawer(
         child: ListView(
           // Important: Remove any padding from the ListView.
@@ -280,61 +285,58 @@ class _State extends State<Homepage> {
     );
   }
 
-  Widget _buildListView() {
+  Widget _buildGridView() {
     return GridView.builder(
       itemCount: data == null ? 0 : data.length,
       gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (BuildContext context, int index) {
-        return new Card(
-          child: new GridTile(
-            child: Container(
-              alignment: Alignment(-1.0, -1.0),
-              decoration: BoxDecoration(
-                // color: Colors.grey,
+        return GestureDetector(
+          onTap: () {
+            print("onTap called->>" + data[index].toString());
+            Navigator.pushNamed(
+                context,
+                ProductDetails.routeName
+            );
+          },
+          child: Card(
+            child: GridTile(
+              child: Container(
+                alignment: Alignment(0, -1.0),
+                decoration: BoxDecoration(
+                  // color: Colors.grey,
+                ),
+                child: CachedNetworkImage(
+                  alignment: Alignment(0, -1.0),
+                  height: 130.0,
+                  fit: BoxFit.fitHeight,
+                  imageUrl: data[index]['urls']['regular'],
+                  placeholder: (context, url) =>
+                      Center(child: CircularProgressIndicator()),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
               ),
-              child: CachedNetworkImage(
-                imageUrl: data[index]['urls']['small'],
-                placeholder: (context, url) =>
-                    Center(child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) => Icon(Icons.error),
+              footer: Container(
+                // color: Colors.red,
+                margin: EdgeInsets.all(0.0),
+                child: Center(
+                  child: Column(
+                    children: [
+                      new Text(data[index]['user']['name']),
+                      new Text(
+                        "KSh 400",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
               ),
+              //just for testing, will fill with image later
             ),
-            footer: Center(
-              child: Column(
-                children: [
-                  new Text(data[index]['user']['name']),
-                  new Text("KSh 400"),
-                ],
-              ),
-            ),
-            //just for testing, will fill with image later
           ),
         );
       },
     );
-    // return ListView.builder(
-    //   padding: const EdgeInsets.all(16.0),
-    //   itemCount: data == null ? 0 : data.length,
-    //   itemBuilder: (context, index) {
-    //     return _buildImageColumn(data[index]);
-    //     // return ListTile(title: Text("data"),subtitle: Text("Likes : 1"),);
-    //   },
-    // );
   }
 
-  Widget _buildImageColumn(item) => Card(
-          child: Column(
-        children: [
-          CachedNetworkImage(
-            imageUrl: item['urls']['small'],
-            placeholder: (context, url) => CircularProgressIndicator(),
-            errorWidget: (context, url, error) => Icon(Icons.error),
-          ),
-          ListTile(
-            title: Text(item['user']['name']),
-            subtitle: Text(item['likes'].toString()),
-          ),
-        ],
-      ));
 }
