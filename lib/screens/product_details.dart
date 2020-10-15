@@ -23,7 +23,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               decoration: BoxDecoration(
                 color: Colors.green[70],
               ),
-              height:MediaQuery.of(context).size.height -140.0,
+              height:MediaQuery.of(context).size.height -155.0,
               child: ProductDetailsWidget(),
             ),
             Align(

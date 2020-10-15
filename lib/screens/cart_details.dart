@@ -8,6 +8,23 @@ class CartDetails extends StatefulWidget {
 }
 
 class _CartDetailsState extends State<CartDetails> {
+  final idController = TextEditingController();
+
+  FocusNode myFocusNode;
+  @override
+  void initState() {
+    super.initState();
+    myFocusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    super.dispose();
+    myFocusNode.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +35,7 @@ class _CartDetailsState extends State<CartDetails> {
           children: [
             Container(
               margin: EdgeInsets.symmetric(horizontal: 6.0),
-              decoration: BoxDecoration(color: Colors.redAccent),
+              // decoration: BoxDecoration(color: Colors.redAccent),
               child: Card(
                 child: Padding(
                   padding: EdgeInsets.all(9.0),
@@ -73,7 +90,8 @@ class _CartDetailsState extends State<CartDetails> {
                                           style: new TextStyle(
                                             color: Colors.grey,
                                             fontSize: 18.0,
-                                            decoration: TextDecoration.lineThrough,
+                                            decoration:
+                                                TextDecoration.lineThrough,
                                           ),
                                         ),
                                         new TextSpan(text: "    "),
@@ -105,37 +123,63 @@ class _CartDetailsState extends State<CartDetails> {
                           Row(
                             children: [
                               IconButton(
-                                  icon: Icon(
-                                    Icons.favorite_border_outlined,
-                                    color: Colors.red,
-                                  ),
-                                  onPressed: () {}),
-                              Divider(
-                                color: Colors.green,
-                                thickness: 2.0,
+                                icon: Icon(
+                                  Icons.favorite_border_outlined,
+                                  color: Colors.red,
+                                ),
+                                onPressed: () {},
                               ),
-                              IconButton(
-                                  icon: Icon(
-                                    Icons.dangerous,
-                                    color: Colors.red,
-                                  ),
-                                  onPressed: () {}),
+                              Container(
+                                width: 1,
+                                height: 25,
+                                color: Colors.grey,
+                              ),
+                              FlatButton(
+                                onPressed: () {
+                                  print("clicked remove item");
+                                },
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                        Icons.dangerous,
+                                        color: Colors.red,
+                                      ),
+                                    Text("REMOVE",style: TextStyle(color: Colors.red),),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                           Row(
                             children: [
                               IconButton(
                                   icon: Icon(
-                                    Icons.share_rounded,
+                                    Icons.remove,
                                     color: Colors.red,
                                   ),
-                                  onPressed: () {}),
+                                  onPressed: () {},),
+                              TextFormField(
+                                initialValue: "1",
+                                // The validator receives the text that the user has entered.
+                                validator: (value) {
+                                  if (value.isEmpty || value == 0) {
+                                    return 'Please enter a valid number';
+                                  }
+                                  return null;
+                                },
+                                cursorColor: Colors.blue,
+                                controller: idController,
+                                focusNode: myFocusNode,
+                                // decoration: InputDecoration(
+                                //     labelText: "Email Address",
+                                //     contentPadding: EdgeInsets.all(12.0)),
+                              ),
                               IconButton(
                                   icon: Icon(
-                                    Icons.favorite_border_outlined,
+                                    Icons.add,
                                     color: Colors.red,
                                   ),
-                                  onPressed: () {}),
+                                  onPressed: () {},),
                             ],
                           ),
                         ],
@@ -145,7 +189,6 @@ class _CartDetailsState extends State<CartDetails> {
                 ),
               ),
             ),
-
           ],
         ));
   }
