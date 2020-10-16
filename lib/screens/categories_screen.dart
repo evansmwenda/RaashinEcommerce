@@ -19,203 +19,873 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           children: [
             Expanded(
               child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                ),
                 child: ListView(
                   children: [
                     SizedBox(
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.redAccent,
-                        ),
-                        child: Text("text is me"),
-                      ),
-                    ),
+                        height: 80,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              "Supermarket",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
                     SizedBox(
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                        ),
-                        child: Text("text is me"),
-                      ),
-                    ),
+                        height: 80,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              "Healthy & Beauty",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
                     SizedBox(
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                        ),
-                        child: Text("text is me"),
-                      ),
-                    ),
+                        height: 80,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              "Home & Office",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
                     SizedBox(
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                        ),
-                        child: Text("text is me"),
-                      ),
-                    ),
+                        height: 80,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              "Phones & Tablets",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
                     SizedBox(
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.orange,
-                        ),
-                        child: Text("text is me"),
-                      ),
-                    ),
+                        height: 80,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              "Computing",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
                     SizedBox(
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.deepOrange,
-                        ),
-                        child: Text("text is me"),
-                      ),
-                    ),
+                        height: 80,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              "Electronics",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
                     SizedBox(
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                        ),
-                        child: Text("text is me"),
-                      ),
-                    ),
+                        height: 80,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              "Fashion",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
                     SizedBox(
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                        ),
-                        child: Text("text is me"),
-                      ),
-                    ),
+                        height: 80,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              "Gaming",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
                     SizedBox(
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                        ),
-                        child: Text("text is me"),
-                      ),
-                    ),
+                        height: 80,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              "Baby Products",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
                     SizedBox(
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blueGrey,
-                        ),
-                        child: Text("text is me"),
-                      ),
-                    ),
+                        height: 80,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              "Sporting Goods",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
                     SizedBox(
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.greenAccent,
-                        ),
-                        child: Text("text is me"),
-                      ),
-                    ),
+                        height: 80,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              "Garden & Outdoors",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
                   ],
-
                 ),
               ),
             ),
             Expanded(
               flex: 3,
               child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                ),
                 child: ListView(
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.pink,
-                      ),
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      child: Center(
-                        child: Text("col 2"),
+                    Card(
+                      child: Container(
+                        padding: EdgeInsets.all(15.0),
+                        decoration: BoxDecoration(
+                            // color: Colors.redAccent
+                            ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Text("HOME & KITCHEN"),
+                                ),
+
+                                Expanded(
+                                  child: InkWell(
+                                    onTap: (){},
+                                    child: Text(
+                                        "SEE ALL",
+                                      style: TextStyle(
+                                        color: Colors.orange[800],
+                                      ),
+                                      ),
+
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Divider(),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Home Decor"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Bedding"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Wall Art"),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Bath"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Storage"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Furniture"),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                      ),
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      child: Center(
-                        child: Text("col 2"),
+                    SizedBox(height: 20.0,),
+                    Card(
+                      child: Container(
+                        padding: EdgeInsets.all(15.0),
+                        decoration: BoxDecoration(
+                          // color: Colors.redAccent
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Text("HOME & KITCHEN"),
+                                ),
+
+                                Expanded(
+                                  child: InkWell(
+                                    onTap: (){},
+                                    child: Text(
+                                      "SEE ALL",
+                                      style: TextStyle(
+                                        color: Colors.orange[800],
+                                      ),
+                                    ),
+
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Divider(),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Home Decor"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Bedding"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Wall Art"),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Bath"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Storage"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Furniture"),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.brown,
-                      ),
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      child: Center(
-                        child: Text("col 2"),
+                    SizedBox(height: 20.0,),
+                    Card(
+                      child: Container(
+                        padding: EdgeInsets.all(15.0),
+                        decoration: BoxDecoration(
+                          // color: Colors.redAccent
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Text("HOME & KITCHEN"),
+                                ),
+
+                                Expanded(
+                                  child: InkWell(
+                                    onTap: (){},
+                                    child: Text(
+                                      "SEE ALL",
+                                      style: TextStyle(
+                                        color: Colors.orange[800],
+                                      ),
+                                    ),
+
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Divider(),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Home Decor"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Bedding"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Wall Art"),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Bath"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Storage"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Furniture"),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                      ),
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      child: Center(
-                        child: Text("col 2"),
+                    SizedBox(height: 20.0,),
+                    Card(
+                      child: Container(
+                        padding: EdgeInsets.all(15.0),
+                        decoration: BoxDecoration(
+                          // color: Colors.redAccent
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Text("HOME & KITCHEN"),
+                                ),
+
+                                Expanded(
+                                  child: InkWell(
+                                    onTap: (){},
+                                    child: Text(
+                                      "SEE ALL",
+                                      style: TextStyle(
+                                        color: Colors.orange[800],
+                                      ),
+                                    ),
+
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Divider(),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Home Decor"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Bedding"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Wall Art"),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Bath"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Storage"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Furniture"),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.purple,
-                      ),
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      child: Center(
-                        child: Text("col 2"),
+                    SizedBox(height: 20.0,),
+                    Card(
+                      child: Container(
+                        padding: EdgeInsets.all(15.0),
+                        decoration: BoxDecoration(
+                          // color: Colors.redAccent
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Text("HOME & KITCHEN"),
+                                ),
+
+                                Expanded(
+                                  child: InkWell(
+                                    onTap: (){},
+                                    child: Text(
+                                      "SEE ALL",
+                                      style: TextStyle(
+                                        color: Colors.orange[800],
+                                      ),
+                                    ),
+
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Divider(),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Home Decor"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Bedding"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Wall Art"),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Bath"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Storage"),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 60,
+                                        width: 60,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Furniture"),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                      ),
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      child: Center(
-                        child: Text("col 2"),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                      ),
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      child: Center(
-                        child: Text("col 2"),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.greenAccent,
-                      ),
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      child: Center(
-                        child: Text("col 2"),
-                      ),
-                    ),
+                    SizedBox(height: 20.0,),
                   ],
                 ),
               ),
