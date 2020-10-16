@@ -9,6 +9,7 @@ import 'package:raashin/constants/apis.dart';
 import 'package:raashin/models/countries_model.dart';
 import 'package:raashin/screens/account_screen.dart';
 import 'package:raashin/screens/cart_details.dart';
+import 'package:raashin/screens/categories_screen.dart';
 import 'package:raashin/screens/product_details.dart';
 import 'package:raashin/widgets/ProductsGridView.dart';
 import 'package:http/http.dart' as http;
@@ -244,8 +245,8 @@ class _State extends State<Homepage> {
               onTap: () {
                 // Update the state of the app.
                 // ...
-                // Navigator.pushNamed(context, CartDetails.routeName);
-                Navigator.pop(context);
+                Navigator.pushNamed(context, CategoriesScreen.routeName);
+                // Navigator.pop(context);
               },
             ),
             ListTile(
