@@ -33,8 +33,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                 height: 60.0,
                 child: RaisedButton(
                   onPressed: () {},
-                  color: Colors.redAccent,
-                  child: Text("ADD TO CART"),
+                  color: Colors.orange[800],
+                  child: Text("ADD TO CART", style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0
+                  ),),
                 ),
               ),
             )

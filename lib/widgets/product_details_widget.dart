@@ -15,7 +15,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
       children: [
         Container(
           margin: EdgeInsets.all(10.0),
-          height: 250.0,
+          height: 200.0,
           decoration: BoxDecoration(
             color: Colors.blue,
           ),
@@ -30,23 +30,20 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 10.0,
-                ),
                 Text(
                   "ZB-Rocker Thunder XL-Portable-Bluetooth Trolley Speaker-50W",
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 18.0,
                   ),
                 ),
                 SizedBox(
-                  height: 20.0,
+                  height: 15.0,
                 ),
                 Text(
                   "KSh 469",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 25.0,
+                    fontSize: 21.0,
                   ),
                 ),
                 SizedBox(
@@ -68,8 +65,8 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                       new TextSpan(
                           text: '-49%',
                           style: TextStyle(
-                            backgroundColor: Colors.red[50],
-                            color: Colors.red,
+                            backgroundColor: Colors.orange[50],
+                            color: Colors.orange,
                             fontSize: 17.0,
                           )),
                     ],
@@ -96,7 +93,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                             itemSize: 19.0,
                             itemBuilder: (context, _) => Icon(
                               Icons.star,
-                              color: Colors.amber,
+                              color: Colors.orange[800],
                             ),
                           ),
                         ),
@@ -112,13 +109,13 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                         IconButton(
                             icon: Icon(
                               Icons.share_rounded,
-                              color: Colors.red,
+                              color: Colors.orange[800],
                             ),
                             onPressed: () {}),
                         IconButton(
                             icon: Icon(
                               Icons.favorite_border_outlined,
-                              color: Colors.red,
+                              color: Colors.orange[800],
                             ),
                             onPressed: () {}),
                       ],
@@ -130,7 +127,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
           ),
         ),
         SizedBox(
-          height: 45.0,
+          height: 40.0,
           width: device_width,
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15.0),
@@ -142,7 +139,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
               "DELIVERY AND RETURNS INFO",
               style: TextStyle(
                 color: Colors.grey[500],
-                fontSize: 16.0,
+                fontSize: 15.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -166,7 +163,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                   title: Text(
                     "Description",
                     style: TextStyle(
-                      fontSize: 17.0,
+                      fontSize: 16.0,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -176,23 +173,23 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                     "allow up to 6 additional business days for other cities. Please check exact dates in the "
                     "checkout page.",
                     style: TextStyle(
-                      fontSize: 15.9,
+                      fontSize: 14.9,
                       color: Colors.black,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 20.0,
+                  height: 10.0,
                 ),
                 ListTile(
                   leading: Icon(
                     Icons.youtube_searched_for,
-                    size: 30,
+                    size: 28,
                   ),
                   title: Text(
                     "Return Policy",
                     style: TextStyle(
-                      fontSize: 17.0,
+                      fontSize: 16.0,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -200,7 +197,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                   subtitle: Text(
                     "15 days free return",
                     style: TextStyle(
-                      fontSize: 15.9,
+                      fontSize: 14.9,
                       color: Colors.black,
                     ),
                   ),
@@ -211,12 +208,12 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                 ListTile(
                   leading: Icon(
                     Icons.assignment_turned_in_outlined,
-                    size: 30,
+                    size: 26,
                   ),
                   title: Text(
                     "Warranty",
                     style: TextStyle(
-                      fontSize: 17.0,
+                      fontSize: 16.0,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -224,7 +221,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                   subtitle: Text(
                     "1 Year Warranty",
                     style: TextStyle(
-                      fontSize: 15.9,
+                      fontSize: 14.9,
                       color: Colors.black,
                     ),
                   ),
@@ -234,7 +231,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
           ),
         ),
         SizedBox(
-          height: 45.0,
+          height: 40.0,
           width: device_width,
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15.0),
@@ -246,7 +243,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
               "PRODUCT DETAILS",
               style: TextStyle(
                 color: Colors.grey[500],
-                fontSize: 16.0,
+                fontSize: 15.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -266,7 +263,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                 title: Text(
                   "Description",
                   style: TextStyle(
-                    fontSize: 19.0,
+                    fontSize: 17.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
@@ -280,7 +277,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                 child: Text(
                   "-Connectivity: Bluetooth, USB, TF Card,Aux In,FM Radio and Hands free",
                   style: TextStyle(
-                    fontSize: 16.0,
+                    fontSize: 15.0,
                     color: Colors.black,
                   ),
                 ),
@@ -290,7 +287,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                 child: Text(
                   "-Speaker Output : 5W",
                   style: TextStyle(
-                    fontSize: 16.0,
+                    fontSize: 15.0,
                     color: Colors.black,
                   ),
                 ),
@@ -300,7 +297,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                 child: Text(
                   "-Battery Capacity : 4600mAh",
                   style: TextStyle(
-                    fontSize: 16.0,
+                    fontSize: 15.0,
                     color: Colors.black,
                   ),
                 ),
@@ -311,7 +308,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                 child: Text(
                   "-Charging time : 4 hours...",
                   style: TextStyle(
-                    fontSize: 16.0,
+                    fontSize: 15.0,
                     color: Colors.black,
                   ),
                 ),
@@ -320,7 +317,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
           ),
         ),
         SizedBox(
-          height: 45.0,
+          height: 40.0,
           width: device_width,
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15.0),
@@ -332,7 +329,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
               "CUSTOMER FEEDBACK",
               style: TextStyle(
                 color: Colors.grey[500],
-                fontSize: 16.0,
+                fontSize: 15.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -352,7 +349,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                 title: Text(
                   "Product Rating & Reviews",
                   style: TextStyle(
-                    fontSize: 19.0,
+                    fontSize: 17.0,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
@@ -365,7 +362,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                         text: "4.4/5",
                         style: new TextStyle(
                           fontSize: 15.0,
-                          color: Colors.orange,
+                          color: Colors.orange[800],
                         ),
                       ),
                       new TextSpan(
@@ -398,10 +395,10 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                             allowHalfRating: true,
                             itemCount: 5,
                             ignoreGestures: true,
-                            itemSize: 19.0,
+                            itemSize: 18.0,
                             itemBuilder: (context, _) => Icon(
                               Icons.star,
-                              color: Colors.amber,
+                              color: Colors.orange[800],
                             ),
                           ),
                         ),
@@ -415,7 +412,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                       "I like it",
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 16.0,
+                          fontSize: 15.0,
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
@@ -463,7 +460,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                             allowHalfRating: true,
                             itemCount: 5,
                             ignoreGestures: true,
-                            itemSize: 19.0,
+                            itemSize: 18.0,
                             itemBuilder: (context, _) => Icon(
                               Icons.star,
                               color: Colors.amber,
@@ -480,7 +477,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                       "Like it",
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 16.0,
+                          fontSize: 15.0,
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
