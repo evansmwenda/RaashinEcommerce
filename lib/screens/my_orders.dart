@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:raashin/screens/order_details.dart';
+
 class MyOrders extends StatefulWidget {
   static const routeName = '/orders';
   @override
@@ -59,6 +61,7 @@ class _MyOrdersState extends State<MyOrders> {
         return ListTile(
           onTap: (){
             print("onTap called->>" + data[index].toString());
+            Navigator.pushNamed(context, OrderDetails.routeName);
           },
           title: Text('318734252'),
           subtitle: Text("2020-02-09"),
