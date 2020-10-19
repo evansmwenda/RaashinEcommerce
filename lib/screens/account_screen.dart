@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:raashin/screens/my_orders.dart';
 
 class AccountScreen extends StatefulWidget {
   static const routeName = '/accountscreen';
@@ -27,7 +28,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, MyOrders.routeName);
+                    },
                     leading: Icon(
                       Icons.wallet_giftcard,
                       size: 25.0,
