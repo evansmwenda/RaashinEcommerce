@@ -6,8 +6,10 @@ import 'package:raashin/screens/home_page.dart';
 import 'package:raashin/screens/login.dart';
 import 'package:raashin/screens/my_orders.dart';
 import 'package:raashin/screens/order_details.dart';
+import 'package:raashin/screens/pending_reviews.dart';
 import 'package:raashin/screens/product_details.dart';
 import 'package:raashin/screens/register.dart';
+import 'package:raashin/screens/saved_items.dart';
 
 
 void main() {
@@ -33,6 +35,8 @@ void main() {
         CategoriesScreen.routeName: (context) => CategoriesScreen(),//CategoriesScreen
         MyOrders.routeName: (context) => MyOrders(),//MyOrders
         OrderDetails.routeName: (context) => OrderDetails(),//OrderDetails
+        PendingReviews.routeName: (context) => PendingReviews(),//PendingReviews
+        SavedItems.routeName: (context) => SavedItems(),//SavedItems
         //ProductDetails
 
 

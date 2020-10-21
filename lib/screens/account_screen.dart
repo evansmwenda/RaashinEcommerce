@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:raashin/screens/my_orders.dart';
+import 'package:raashin/screens/pending_reviews.dart';
+import 'package:raashin/screens/saved_items.dart';
 
 class AccountScreen extends StatefulWidget {
   static const routeName = '/accountscreen';
@@ -49,7 +51,9 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                   ),
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, PendingReviews.routeName);
+                    },
                     leading: Icon(
                       Icons.add_comment,
                       size: 25.0,
@@ -68,7 +72,9 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                   ),
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, SavedItems.routeName);
+                    },
                     leading: Icon(
                       Icons.favorite_border_outlined,
                       size: 25.0,

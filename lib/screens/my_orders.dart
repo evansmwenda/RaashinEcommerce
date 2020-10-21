@@ -19,7 +19,7 @@ class _MyOrdersState extends State<MyOrders> {
     // https://developers.google.com/books/docs/overview
     // var url = 'https://www.googleapis.com/books/v1/volumes?q={http}';
     // var url = 'https://unsplash.com/napi/photos/Q14J2k8VE3U/related';
-    var url = 'https://jsonplaceholder.typicode.com/users';
+    var url = 'https://jsonplaceholder.typicode.com/posts';
 
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
@@ -56,6 +56,7 @@ class _MyOrdersState extends State<MyOrders> {
 
   Widget _ordersListView() {
     return ListView.builder(
+      scrollDirection: Axis.vertical,
       itemCount: data == null ? 0 : data.length,
       itemBuilder: (BuildContext context, int index) {
         return ListTile(
