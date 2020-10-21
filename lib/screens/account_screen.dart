@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:raashin/screens/my_addresses.dart';
 import 'package:raashin/screens/my_orders.dart';
+import 'package:raashin/screens/my_profile.dart';
 import 'package:raashin/screens/pending_reviews.dart';
 import 'package:raashin/screens/saved_items.dart';
 
@@ -116,7 +118,9 @@ class _AccountScreenState extends State<AccountScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, MyProfile.routeName);
+                    },
                     title: Text(
                       "Details",
                       style: TextStyle(
@@ -131,7 +135,9 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                   ),
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, MyAddresses.routeName);
+                    },
                     title: Text(
                       "Address Book",
                       style: TextStyle(

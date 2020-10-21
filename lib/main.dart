@@ -4,7 +4,9 @@ import 'package:raashin/screens/cart_details.dart';
 import 'package:raashin/screens/categories_screen.dart';
 import 'package:raashin/screens/home_page.dart';
 import 'package:raashin/screens/login.dart';
+import 'package:raashin/screens/my_addresses.dart';
 import 'package:raashin/screens/my_orders.dart';
+import 'package:raashin/screens/my_profile.dart';
 import 'package:raashin/screens/order_details.dart';
 import 'package:raashin/screens/pending_reviews.dart';
 import 'package:raashin/screens/product_details.dart';
@@ -37,6 +39,8 @@ void main() {
         OrderDetails.routeName: (context) => OrderDetails(),//OrderDetails
         PendingReviews.routeName: (context) => PendingReviews(),//PendingReviews
         SavedItems.routeName: (context) => SavedItems(),//SavedItems
+        MyProfile.routeName: (context) => MyProfile(),//MyProfile
+        MyAddresses.routeName: (context) => MyAddresses(),//MyAddresses
         //ProductDetails
 
 
