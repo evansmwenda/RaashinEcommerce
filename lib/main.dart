@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:raashin/screens/account_screen.dart';
 import 'package:raashin/screens/cart_details.dart';
 import 'package:raashin/screens/categories_screen.dart';
+import 'package:raashin/screens/edit_address.dart';
 import 'package:raashin/screens/home_page.dart';
 import 'package:raashin/screens/login.dart';
 import 'package:raashin/screens/my_addresses.dart';
@@ -41,6 +42,7 @@ void main() {
         SavedItems.routeName: (context) => SavedItems(),//SavedItems
         MyProfile.routeName: (context) => MyProfile(),//MyProfile
         MyAddresses.routeName: (context) => MyAddresses(),//MyAddresses
+        EditAddress.routeName: (context) => EditAddress(),//EditAddress
         //ProductDetails
 
 
