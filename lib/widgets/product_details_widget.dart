@@ -83,18 +83,21 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                       children: [
                         SizedBox(
                           width: 170,
-                          child: RatingBar(
+                          child: RatingBar.builder(
                             initialRating: 3,
                             minRating: 1,
                             direction: Axis.horizontal,
                             allowHalfRating: true,
                             itemCount: 5,
-                            ignoreGestures: true,
                             itemSize: 19.0,
+                            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
                             itemBuilder: (context, _) => Icon(
                               Icons.star,
                               color: Colors.orange[800],
                             ),
+                            onRatingUpdate: (rating) {
+                              print(rating);
+                            },
                           ),
                         ),
                         Text(
@@ -388,18 +391,21 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                       children: [
                         SizedBox(
                           width: 170,
-                          child: RatingBar(
+                          child: RatingBar.builder(
                             initialRating: 3,
                             minRating: 1,
                             direction: Axis.horizontal,
                             allowHalfRating: true,
                             itemCount: 5,
-                            ignoreGestures: true,
-                            itemSize: 18.0,
+                            itemSize: 19.0,
+                            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
                             itemBuilder: (context, _) => Icon(
                               Icons.star,
                               color: Colors.orange[800],
                             ),
+                            onRatingUpdate: (rating) {
+                              print(rating);
+                            },
                           ),
                         ),
                         Text("2020-10-14"),
@@ -453,18 +459,21 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                       children: [
                         SizedBox(
                           width: 170,
-                          child: RatingBar(
+                          child: RatingBar.builder(
                             initialRating: 3,
                             minRating: 1,
                             direction: Axis.horizontal,
                             allowHalfRating: true,
                             itemCount: 5,
-                            ignoreGestures: true,
-                            itemSize: 18.0,
+                            itemSize: 19.0,
+                            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
                             itemBuilder: (context, _) => Icon(
                               Icons.star,
-                              color: Colors.amber,
+                              color: Colors.orange[800],
                             ),
+                            onRatingUpdate: (rating) {
+                              print(rating);
+                            },
                           ),
                         ),
                         Text("2020-10-14"),
