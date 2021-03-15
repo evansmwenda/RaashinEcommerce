@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:provider/provider.dart';
 import 'package:raashin/models/cart_model.dart';
 import 'package:raashin/screens/account_screen.dart';
 import 'package:raashin/screens/cart_details.dart';
@@ -17,7 +18,9 @@ import 'package:raashin/screens/saved_items.dart';
 
 void main() {
   //check this example of cart implementation
+  //https://github.com/shashank-p/Flutter-Login-Register/
   // https://github.com/flutter/samples/blob/master/provider_shopper/lib/models/cart.dart
+  //https://medium.com/@afegbua/flutter-thursday-13-building-a-user-registration-and-login-process-with-provider-and-external-api-1bb87811fd1d
   runApp(
     MyApp()
   );
