@@ -52,167 +52,166 @@ class _RegisterState extends State<Register> {
           : ListView(
               padding: EdgeInsets.all(30.0),
               children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 150,
-                      height: 150,
-                      child: Image(
-                        image: AssetImage('images/connectdark.png'),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15.0,
-                    ),
-                    Form(
-                      key: _formKey,
-                      child: Column(
-                        children: <Widget>[
-                          TextFormField(
-                            // The validator receives the text that the user has entered.
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return 'Please enter a valid E-mail Address';
-                              }
-                              return null;
-                            },
-                            cursorColor: Colors.blue,
-                            controller: idController,
-                            focusNode: myFocusNode,
-                            decoration: InputDecoration(
-                                labelText: "Email Address",
-                                contentPadding: EdgeInsets.all(12.0)),
-                          ),
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          TextFormField(
-                            // The validator receives the text that the user has entered.
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return 'Please enter a valid password';
-                              }
-                              return null;
-                            },
-                            obscureText: _obscureText,
-                            cursorColor: Colors.blue,
-                            controller: pinController,
-                            decoration: InputDecoration(
-                              labelText: "Password",
-                              contentPadding: EdgeInsets.all(12.0),
-                              suffixIcon: IconButton(
-                                icon: Icon(
-                                  _obscureText
-                                      ? Icons.visibility_off
-                                      : Icons.visibility,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                                onPressed: () {
-                                  setState(() {
-                                    //change the state upon click
-                                    _obscureText = !_obscureText;
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
+                Container(
+                  width: 150,
+                  height: 150,
+                  child: Image(
+                    image: AssetImage('images/connectdark.png'),
+                  ),
+                ),
+                SizedBox(
+                  height: 15.0,
+                ),
+                _myRegisterForm(),
+              ],
+            ),
+    );
+  }
+
+  Widget _myRegisterForm(){
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: <Widget>[
+          TextFormField(
+            // The validator receives the text that the user has entered.
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter a valid E-mail Address';
+              }
+              return null;
+            },
+            cursorColor: Colors.blue,
+            controller: idController,
+            focusNode: myFocusNode,
+            decoration: InputDecoration(
+                labelText: "Email Address",
+                contentPadding: EdgeInsets.all(12.0)),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
+            // The validator receives the text that the user has entered.
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter a valid password';
+              }
+              return null;
+            },
+            obscureText: _obscureText,
+            cursorColor: Colors.blue,
+            controller: pinController,
+            decoration: InputDecoration(
+              labelText: "Password",
+              contentPadding: EdgeInsets.all(12.0),
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _obscureText
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: Theme.of(context).primaryColor,
+                ),
+                onPressed: () {
+                  setState(() {
+                    //change the state upon click
+                    _obscureText = !_obscureText;
+                  });
+                },
+              ),
+            ),
+          ),
 //                    SizedBox(
 //                      height: 5.0,
 //                    ),
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          TextFormField(
-                            // The validator receives the text that the user has entered.
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return 'Please enter a valid confirm password';
-                              }
-                              return null;
-                            },
-                            onFieldSubmitted: (_) => _registerUser(),
-                            obscureText: _obscureText,
-                            cursorColor: Colors.blue,
-                            controller: pinConfirmController,
-                            decoration: InputDecoration(
-                              labelText: "Confirm Password",
-                              contentPadding: EdgeInsets.all(12.0),
-                              suffixIcon: IconButton(
-                                icon: Icon(
-                                  _obscureText
-                                      ? Icons.visibility_off
-                                      : Icons.visibility,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                                onPressed: () {
-                                  setState(() {
-                                    //change the state upon click
-                                    _obscureText = !_obscureText;
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
+            // The validator receives the text that the user has entered.
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter a valid confirm password';
+              }
+              return null;
+            },
+            onFieldSubmitted: (_) => _registerUser(),
+            obscureText: _obscureText,
+            cursorColor: Colors.blue,
+            controller: pinConfirmController,
+            decoration: InputDecoration(
+              labelText: "Confirm Password",
+              contentPadding: EdgeInsets.all(12.0),
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _obscureText
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: Theme.of(context).primaryColor,
+                ),
+                onPressed: () {
+                  setState(() {
+                    //change the state upon click
+                    _obscureText = !_obscureText;
+                  });
+                },
+              ),
+            ),
+          ),
 
-                          Container(
-                            margin: EdgeInsets.only(
-                                left: 30.0, right: 30.0, top: 20.0),
+          Container(
+            margin: EdgeInsets.only(
+                left: 30.0, right: 30.0, top: 20.0),
 //                      width: 300.0,
 //                      height: 50.0,
-                            child: SizedBox(
-                              width: double.infinity,
-                              height: 50.0, // match_parent
-                              child: RaisedButton(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(28.0),
-                                ),
-                                color: Colors.blue,
-                                onPressed: () {
-                                  _registerUser();
-                                },
-                                child: Text(
-                                  'Sign Up',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 16.0),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 70.0,
-                          ),
-
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                "Already have an account?",
-                                style: TextStyle(fontSize: 18.0),
-                              ),
-                              InkWell(
-                                child: Center(
-                                  child: Text(
-                                    "Sign In",
-                                    style: TextStyle(
-                                      fontSize: 17.0,
-                                      color: Colors.blue,
-                                    ),
-                                  ),
-                                ),
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                )
-              ],
+            child: SizedBox(
+              width: double.infinity,
+              height: 50.0, // match_parent
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(28.0),
+                ),
+                color: Colors.blue,
+                onPressed: () {
+                  _registerUser();
+                },
+                child: Text(
+                  'Sign Up',
+                  style: TextStyle(
+                      color: Colors.white, fontSize: 16.0),
+                ),
+              ),
             ),
+          ),
+          SizedBox(
+            height: 70.0,
+          ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "Already have an account?",
+                style: TextStyle(fontSize: 18.0),
+              ),
+              InkWell(
+                child: Center(
+                  child: Text(
+                    "Sign In",
+                    style: TextStyle(
+                      fontSize: 17.0,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

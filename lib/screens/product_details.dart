@@ -13,37 +13,35 @@ class _ProductDetailsState extends State<ProductDetails> {
     // final ProductDetailArguments args = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Product Name"),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.green[70],
-              ),
-              height:MediaQuery.of(context).size.height -155.0,
-              child: ProductDetailsWidget(),
+      appBar: AppBar(
+        title: Text("Product Name"),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.green[70],
             ),
-            Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: 60.0,
-                child: RaisedButton(
-                  onPressed: () {},
-                  color: Colors.orange[800],
-                  child: Text("ADD TO CART", style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0
-                  ),),
+            height: MediaQuery.of(context).size.height - 155.0,
+            child: ProductDetailsWidget(),
+          ),
+          Align(
+            alignment: FractionalOffset.bottomCenter,
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 60.0,
+              child: ElevatedButton(
+                child: Text(
+                  "ADD TO CART",
+                  style: TextStyle(color: Colors.white, fontSize: 18.0),
                 ),
+                onPressed: (){},
               ),
-            )
-          ],
-        ),);
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
-
-

@@ -6,7 +6,7 @@ import 'package:raashin/screens/pending_reviews.dart';
 import 'package:raashin/screens/saved_items.dart';
 
 class AccountScreen extends StatefulWidget {
-  static const routeName = '/accountscreen';
+  static const routeName = '/account-screen';
   @override
   _AccountScreenState createState() => _AccountScreenState();
 }
@@ -158,7 +158,7 @@ class _AccountScreenState extends State<AccountScreen> {
           Container(
             height: 100,
             child: Center(
-              child: FlatButton(
+              child: TextButton(
                 child: Text(
                   "LOGOUT",
                   style: TextStyle(
@@ -169,7 +169,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 onPressed: () {},
               ),
             ),
-          )
+          ),
         ],
       ),
     );

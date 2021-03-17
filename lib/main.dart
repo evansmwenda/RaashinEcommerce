@@ -49,12 +49,10 @@ class MyApp extends StatelessWidget {
           ProductDetails.routeName: (context) => ProductDetails(),
           CartDetails.routeName: (context) => CartDetails(),
           AccountScreen.routeName: (context) => AccountScreen(), //AccountScreen
-          CategoriesScreen.routeName: (context) =>
-              CategoriesScreen(), //CategoriesScreen
+          CategoriesScreen.routeName: (context) => CategoriesScreen(), //CategoriesScreen
           MyOrders.routeName: (context) => MyOrders(), //MyOrders
           OrderDetails.routeName: (context) => OrderDetails(), //OrderDetails
-          PendingReviews.routeName: (context) =>
-              PendingReviews(), //PendingReviews
+          PendingReviews.routeName: (context) =>  PendingReviews(), //PendingReviews
           SavedItems.routeName: (context) => SavedItems(), //SavedItems
           MyProfile.routeName: (context) => MyProfile(), //MyProfile
           MyAddresses.routeName: (context) => MyAddresses(), //MyAddresses

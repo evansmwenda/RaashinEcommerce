@@ -67,7 +67,7 @@ class _State extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     var aboutChild = AboutListTile(
-      child: Text(
+      child:  const Text(
         "About",
         style: TextStyle(
           color: Colors.blue,
@@ -76,10 +76,10 @@ class _State extends State<Homepage> {
       applicationName: "Raashin",
       applicationVersion: "v1.0.0",
       applicationLegalese: '© Raashin Africa',
-      applicationIcon: SizedBox(
+      applicationIcon: const SizedBox(
         height: 40.0,
         width: 40.0,
-        child: Image(
+        child: const Image(
           image: AssetImage('images/connectdark.png'),
         ),
       ),
@@ -154,7 +154,7 @@ class _State extends State<Homepage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Raashin"),
+        title: const Text("Raashin"),
         actions: <Widget>[
           IconButton(
             icon: Icon(
